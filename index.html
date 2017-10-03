@@ -29,8 +29,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
     <script src="https://cdn.jsdelivr.net/npm/markdown-element/dist/markdown-element.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/webtorrent-element@latest/dist/webtorrent-element.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/webtorrent-element/dist/webtorrent-element.min.js"></script>
+    <script src="bundle.js"></script>
 
   </head>
   <body>
@@ -143,11 +143,16 @@
               <div class="column">
                 <mark-down class="zoomIn">
                   ```html
-                  &lt;web-torrent src="MAGNETURL" &gt;
+                  &lt;web-torrent src="MAGNETURL" file="Sintel.mp4"&gt;
                   &lt;/web-torrent&gt;
                   ```
                 </mark-down>
-                <web-torrent src="magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2F&xs=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel.torrent">
+                <style>
+web-torrent.wt-example video {
+  max-width: 100%;
+}
+</style>
+                <web-torrent class="wt-example" file="Sintel.mp4" src="magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2F&xs=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel.torrent">
                 </web-torrent>
               </div>
             </div>
@@ -155,183 +160,251 @@
         </section>
 
         <section>
-          <div class="wrap">
-            <h2>Features</h2>
-            <ul class="flexblock features">
-              <li>
-                <div>
-                  <h2>
-                    <span>&rarr;</span>
-                    Simple Navigation
-                  </h2>
-                  with arrow keys, presenter...
-                </div>
-              </li>
-              <li>
-                <div>
-                  <h2>
-                    <svg class="fa-link">
-                      <use xlink:href="#fa-link"></use>
-                    </svg>
-                    Permalinks
-                  </h2>
-                  Go to a specific slide.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <h2>
-                    <svg class="fa-clock-o">
-                      <use xlink:href="#fa-clock-o"></use>
-                    </svg>
-                    Slide Counter
-                  </h2>
-                  Current/Total number.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <h2>
-                    <span>40<sup>+</sup></span>
-                    Beautiful Components
-                  </h2>
-                  Covers, cards, quotes...
-                </div>
-              </li>
-              <li>
-                <div>
-                  <h2>
-                    <svg class="fa-text-height">
-                      <use xlink:href="#fa-text-height"></use>
-                    </svg>
-                    Vertical Rhythm
-                  </h2>
-                  Use multiples of 8.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <h2>
-                    <span>500<sup>+</sup></span>
-                    SVG Icons
-                  </h2>
-                  Font Awesome Kit.
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <div class="wrap">
-            <h2><strong>WebSlides Demos</strong></h2>
-            <p>Contribute on <a href="https://github.com/webslides/webslides" title="Contribute on Github">Github</a>. <span class="alignright"><a href="demos/index.html" title="WebSlides Demos">View all &rsaquo;</a></span></p>
-            <ul class="flexblock gallery">
-              <li>
-                <a href="demos/why-webslides.html" title="Why WebSlides?">
-                  <figure>
-                    <img alt="Thumbnail Why WebSlides?" src="https://webslides.tv/static/images/demos-why.png">
-                    <figcaption>
-                      <h2>Why WebSlides?</h2>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="demos/landings.html" title="Landings">
-                  <figure>
-                    <img alt="Thumbnail Landings" src="https://webslides.tv/static/images/demos-landings.png">
-                    <figcaption>
-                      <h2>Landings</h2>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="demos/portfolios.html" title="Portfolios">
-                  <figure>
-                    <img alt="Thumbnail Portfolios" src="https://webslides.tv/static/images/demos-portfolios.png">
-                    <figcaption>
-                      <h2>Portfolios</h2>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="demos/keynote.html" title="Apple Keynote">
-                  <figure>
-                    <img alt="Thumbnail Apple Keynote" src="https://webslides.tv/static/images/demos-apple.png">
-                    <figcaption>
-                      <h2>Apple Keynote</h2>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- .end .wrap -->
-        </section>
-        <section>
+          <!--.wrap = container (width: 90%) -->
           <div class="wrap">
             <div class="grid vertical-align">
               <div class="column">
-                <h4>
-                  <svg class="fa-life-ring">
-                    <use xlink:href="#fa-life-ring"></use>
-                  </svg>
-                  <strong>Guides</strong>
-                </h4>
-                <p>If you need help, here's just three tutorials. Just a basic knowledge of HTML is required:</p>
-                <ul class="description">
-                  <li><a href="demos/components.html" title="WebSlides Components">WebSlides Components</a>.</li>
-                  <li><a href="demos/classes.html" title="WebSlides Classes">WebSlides Classes</a>.</li>
-                  <li><a href="demos/media.html" title="WebSlides Media">WebSlides Media: images, videos...</a></li>
-                </ul>
+                <h3><strong>Extending the Web</strong></h3>
+                <p class="text-intro">Entirely new rendering engines.</p>
+                <p>Because ShadowDOM allows us to redefine what is rendered vs. what is defined in an element we can take the text
+                value of an element and implement alternate renderers.
+                </p>
               </div>
+              <!-- .end .column -->
               <div class="column">
-                <figure><img class="aligncenter" src="static/images/setup.png" alt="WebSlides Files"></figure>
-              </div>
-              <div class="column">
-                <h4>
-                  <svg class="fa-cubes">
-                    <use xlink:href="#fa-cubes"></use>
-                  </svg>
-                  <strong>Built to expand</strong>
-                </h4>
-                <p>The best way to <strong>inspire with your content</strong> is to connect on a personal level:</p>
-                <ul class="description">
-                  <li>Background images: <a href="http://unsplash.com">Unsplash</a>.</li>
-                  <li>CSS animations: <a href="https://daneden.github.io/animate.css/">Animate.css</a>.</li>
-                  <li>Longforms: <a href="http://michalsnik.github.io/aos/"> Animate on scroll</a>.</li>
-                </ul>
+                <mark-down class="zoomIn">
+                  ```html
+                  &lt;mark-down&gt;
+                  # h1
+                  ## h2
+
+                  [link](http://google.com)
+                  &lt;/mark-down&gt;
+                  ```
+                </mark-down>
+                <style>
+                mark-down#rendered-markdown {
+                  padding: 10px 10px 10px 10px;
+                  margin-top: 5px;
+                  background: #fff;
+                  border: 1px solid rgba(0, 20, 80, 0.1);
+                  -webkit-box-shadow: 0 8px 16px rgba(0, 20, 80, 0.04), 0 4px 16px rgba(0, 0, 0, 0.08);
+                  box-shadow: 0 8px 16px rgba(0, 20, 80, 0.04), 0 4px 16px rgba(0, 0, 0, 0.08);
+                }
+                </style>
+                <mark-down id="rendered-markdown">
+                  # h1
+                  ## h2
+
+                  [link](http://google.com)
+                </mark-down>
               </div>
             </div>
-            <!--end .grid -->
           </div>
         </section>
-        <section class="aligncenter">
-          <!-- .wrap = container (width: 90%) -->
-          <div class="wrap">
-            <h2><strong>Ready to Start?</strong> </h2>
-            <p class="text-intro">Create your own presentation instantly. <br>120+ premium slides ready to use.</p>
-            <p>
-              <a href="https://webslides.tv/webslides-latest.zip" class="button" title="Download WebSlides">
-                <svg class="fa-cloud-download">
-                  <use xlink:href="#fa-cloud-download"></use>
-                </svg>
-                Free Download
-              </a>
-              <span class="try">
-                <a href="https://www.paypal.me/jlantunez/8" title="Thanks :)">
-                  <svg class="fa-paypal">
-                    <use xlink:href="#fa-paypal"></use>
-                  </svg>
-                  Pay what you want.
-                </a>
-              </span>
-            </p>
+
+        <section>
+            <div class="wrap">
+              <h2>Practical Machine Learning</h2>
+              <h4 style="margin-bottom:10px;">Understanding Opaque Datatypes</h4>
+              <ul class="flexblock features">
+                <li>
+                  <div>
+                    <h2>
+                      <span>🖼️</span>
+                      Images
+                    </h2>
+                    discover objects, tags, text, nsfw, etc.
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <h2>
+                      <span>🎙️</span>
+                      Audio
+                    </h2>
+                    text, translation, sentiment analysic, etc.
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <h2>
+                      <span>📺</span>
+                      Video
+                    </h2>
+                    objects, text, nsfw, etc.
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </section>
+
+      <section class="slide">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <!-- alignment [class*="content-"] = container max-width:50% = 600px -->
+          <div>
+            <h2><strong>Example</strong></h2>
+            <p>Let's build a dynamic quote UI.</p>
+            <style>
+            blockquote.example-block {
+              padding: 10px 20px 10px 20px;
+              /* margin-top: 5px; */
+              background: #fff;
+              border: 1px solid rgba(0, 20, 80, 0.1);
+              -webkit-box-shadow: 0 8px 16px rgba(0, 20, 80, 0.04), 0 4px 16px rgba(0, 0, 0, 0.08);
+              box-shadow: 0 8px 16px rgba(0, 20, 80, 0.04), 0 4px 16px rgba(0, 0, 0, 0.08);
+              font-size: 130%;
+            }
+            </style>
+
+            <blockquote class="example-block">
+              "Acoustic pugilistic lingustic rap fabric."&nbsp&nbsp
+              <img class="avatar-56" src="http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg" alt="Avatar">
+            </blockquote>
+          </div>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section class="slide">
+        <div class="wrap">
+          <div class="content-center">
+            <img class="zoomin" style="width:400px;" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/RZA_Shankbone_2009_Tao_of_Wu.jpg"></img>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap aligncenter">
+            <!-- alignment [class*="content-"] = container max-width:50% = 600px -->
+            <div>
+              <style>
+              blockquote#second-example {
+                margin-top: 5px;
+              }
+              mark-down#compretend-ex {
+                display: flex;
+                justify-content: center;
+              }
+              mark-down#compretend-ex div {
+                width: 400px;
+              }
+              </style>
+
+              <blockquote class="example-block" id="second-example">
+                "Acoustic pugilistic lingustic rap fabric."&nbsp&nbsp
+                <img class="avatar-40" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/RZA_Shankbone_2009_Tao_of_Wu.jpg" alt="Avatar">
+              </blockquote>
+            </div>
           </div>
           <!-- .end .wrap -->
         </section>
+
+<section class="slide">
+    <!--.wrap = container (width: 90%) -->
+    <div class="wrap aligncenter">
+      <!-- alignment [class*="content-"] = container max-width:50% = 600px -->
+      <div>
+        <style>
+        blockquote#second-example {
+          margin-top: 5px;
+        }
+        mark-down#compretend-ex {
+          display: flex;
+          justify-content: center;
+        }
+        mark-down#compretend-ex div {
+          width: 400px;
+        }
+        </style>
+
+        <mark-down id="compretend-ex" class="zoomIn">
+          ```html
+          &lt;compretend-img
+             src="URL" crop="faces"&gt;
+          &lt;/compretend-img&gt;
+          ```
+        </mark-down>
+        <style>
+        compretend-img img {
+          height: 56px;
+          width: 56px;
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: 6px;
+          vertical-align: middle;
+        }
+        </style>
+
+        <blockquote class="example-block" id="second-example">
+          "Acoustic pugilistic lingustic rap fabric."&nbsp&nbsp
+          <compretend-img  src="https://upload.wikimedia.org/wikipedia/commons/e/e4/RZA_Shankbone_2009_Tao_of_Wu.jpg" crop="faces">
+          </compretend-img>
+        </blockquote>
+      </div>
+    </div>
+    <!-- .end .wrap -->
+  </section>
+
+  <section class="slide">
+      <!--.wrap = container (width: 90%) -->
+      <div class="wrap aligncenter">
+        <!-- alignment [class*="content-"] = container max-width:50% = 600px -->
+        <div>
+          <style>
+          blockquote#second-example {
+            margin-top: 5px;
+          }
+          mark-down#compretend-ex {
+            display: flex;
+            justify-content: center;
+          }
+          mark-down#compretend-ex div {
+            width: 400px;
+          }
+          </style>
+
+          <mark-down id="compretend-ex" class="zoomIn">
+            ```html
+            &lt;compretend-img
+               src="URL"
+               crop="faces"
+               scaled="true"
+               width="100"
+               margin="20"
+               &gt;
+            &lt;/compretend-img&gt;
+            ```
+          </mark-down>
+          <style>
+          compretend-img img {
+            height: 56px;
+            width: 56px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            vertical-align: middle;
+          }
+          </style>
+
+          <blockquote class="example-block" id="second-example">
+            "Acoustic pugilistic lingustic rap fabric."&nbsp&nbsp
+            <compretend-img  src="https://upload.wikimedia.org/wikipedia/commons/e/e4/RZA_Shankbone_2009_Tao_of_Wu.jpg"
+            crop="faces"
+            scaled="true"
+            width="100"
+            margin="20"
+            >
+            </compretend-img>
+          </blockquote>
+        </div>
+      </div>
+      <!-- .end .wrap -->
+    </section>
+
         <section class="slide-bottom">
           <div class="wrap">
             <div class="content-right text-serif">
